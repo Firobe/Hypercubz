@@ -135,6 +135,8 @@ MatrixXd passage(int n) {
                 for(int k = l - 1 ; k > l - m - 1; k-- )
                     if(k == l - vec)
                         b(i) -= coef(i, k, n);
+                    else
+                        b(i) -= coef(i, k, n) * 0.5;
             }
             VectorXd x = a.partialPivLu().solve(b);
             cout << ".";
@@ -144,7 +146,7 @@ MatrixXd passage(int n) {
                 else if(i == l - vec)
                     temp(i, c) = 1;
                 else
-                    temp(i, c) = 0;
+                    temp(i, c) = 0.5;
             c++;
         }
     }

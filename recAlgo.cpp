@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <windows.h>
 #include <chrono>
 
 using namespace std;
@@ -62,6 +63,7 @@ int main()
 	auto finish = chrono::high_resolution_clock::now();
 	cout << "Operation effectuée en " << (double)chrono::duration_cast<std::chrono::microseconds>(finish-start).count()/1000000 << " s." << endl;
 	cout << "Optimisations : " << zeros << endl;
+	system("pause");
 	return 0;
 }
 
