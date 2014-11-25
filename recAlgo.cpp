@@ -54,14 +54,17 @@ int main()
 	if(!co){
 		for(int i = 0; i<pui-1 ;i++)
 			calc = product(calc, passage);
-		print(calc);}
+        auto finish = chrono::high_resolution_clock::now();
+		print(calc);
+		cout << "Operation effectuée en " << (double)chrono::duration_cast<std::chrono::microseconds>(finish-start).count()/1000000 << " s." << endl;
+		}
 	else{
 		while(!conv(calc, n)){
 			pui++;
 			calc = product(calc, passage);}
+        auto finish = chrono::high_resolution_clock::now();
+        cout << "Operation effectuée en " << (double)chrono::duration_cast<std::chrono::microseconds>(finish-start).count()/1000000 << " s." << endl;
 		cout << "La matrice a convergé après "<<pui<<" puissances."<<endl;}
-	auto finish = chrono::high_resolution_clock::now();
-	cout << "Operation effectuée en " << (double)chrono::duration_cast<std::chrono::microseconds>(finish-start).count()/1000000 << " s." << endl;
 	cout << "Optimisations : " << zeros << endl;
 	system("pause");
 	return 0;
